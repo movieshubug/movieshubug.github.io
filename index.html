@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Hub - Download Your Favorite Movies</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    
+    <script>
+        function toggleMenu() {
+            const nav = document.querySelector('nav');
+            nav.classList.toggle('active');
+        }
+        function showCategory(category) {
+            const allMovies = document.querySelectorAll('.movie-card');
+            allMovies.forEach(movie => {
+                movie.style.display = movie.dataset.category === category || category === 'all' ? 'block' : 'none';
+            });
+        }
+        function searchMovies() {
+            const searchTerm = document.getElementById('search-input').value.toLowerCase();
+            const allMovies = document.querySelectorAll('.movie-card');
+            allMovies.forEach(movie => {
+                const title = movie.querySelector('h3').textContent.toLowerCase();
+                const description = movie.querySelector('p').textContent.toLowerCase();
+                movie.style.display = title.includes(searchTerm) || description.includes(searchTerm) ? 'block' : 'none';
+            });
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Movie Hub</h1>
+        <div class="hamburger" onclick="toggleMenu()">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">Library</a>
+            <a href="#">Upload</a>
+            <a href="#">Contact</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h2>Welcome to Movie Hub</h2>
+        <p>Download and enjoy your favorite movies.</p>
+    </section>
+
+    <section class="categories">
+        <button onclick="showCategory('all')">All</button>
+        <button onclick="showCategory('action')">Action</button>
+        <button onclick="showCategory('adventure')">Adventure</button>
+        <button onclick="showCategory('comedy')">Comedy</button>
+        <button onclick="showCategory('drama')">Drama</button>
+        <button onclick="showCategory('romance')">Romance</button>
+        <button onclick="showCategory('fantasy')">Fantasy</button>
+    </section>
+
+    <section class="search-bar">
+        <input type="text" id="search-input" placeholder="Search movies by title or description...">
+        <button onclick="searchMovies()">Search</button>
+    </section>
+
+    <section class="movie-grid">
+        <div class="movie-card" data-category="action">
+            <img src="movies/Gladiator II.jpg" alt="Action Movie">
+            <div class="content">
+                <h3>Gladiator II</h3>
+                <p>Gladiator II 2024.</p>
+                <a href="movies/Gladiator II.MKV" download>Download</a>
+            </div>
+        </div>
+        
+        <div class="movie-card" data-category="action">
+            <img src="movies/Kraven The Hunter.jpg" alt="Action Movie">
+            <div class="content">
+                <h3>Kraven The Hunter</h3>
+                <p>Kraven The Hunter 2024.</p>
+                <a href="movies/Kraven The Hunter.MKV" download>Download</a>
+            </div>
+        </div>
+
+        <div class="movie-card" data-category="adventure">
+            <img src="movies/Everyday.jpeg" alt="Adventure Movie">
+            <div class="content">
+                <h3>EVERYDAY</h3>
+                <p>Exciting adventure story.</p>
+                <a href="movies/Everyday.MKV" download>Download</a>
+            </div>
+        </div>
+        
+        <div class="movie-card" data-category="comedy">
+            <img src="movies/bad Tiding.jpg" alt="Comedy Movie">
+            <div class="content">
+                <h3 style="background-color: white;">Bad Tidings</h3>
+                <p>Bad Tidings. Comedy</p>
+                <a href="movies/BadTidings.MKV" download>Download</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Movie Hub. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>
