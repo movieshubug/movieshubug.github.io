@@ -3,9 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Movie Hub - Your destination for current movies, free movies, latest movies, cheap movies, and movie downloads.">
+    <meta name="keywords" content="current movies website, free movies, latest movies, cheap movies, movie hub, movie downloads">
+    <meta name="author" content="Movie Hub">
     <title>Movie Hub - Download Your Favorite Movies</title>
     <link rel="stylesheet" type="text/css" href="styles.css">
-
+    <link rel="icon" type="image/JPG" href="icon.JPG">
     <script>
         function toggleMenu() {
             const nav = document.querySelector('nav');
@@ -20,7 +23,7 @@
         function searchMovies() {
             const searchTerm = document.getElementById('search-input').value;
             const searchUrl = `https://waploaded.com/?s=${encodeURIComponent(searchTerm)}`;
-            window.location.href = searchUrl; // Redirect to Waploaded search
+            window.location.href = searchUrl;
         }
     </script>
 </head>
@@ -33,19 +36,21 @@
             <div></div>
         </div>
         <nav>
-            <a href="#">Home</a>
+            <!--a href="#">Home</a>
             <a href="#">Library</a>
             <a href="#">Upload</a>
             <a href="#">Contact</a>
+            <a href="#categories">Categories</a-->
         </nav>
     </header>
 
     <section class="hero">
         <h2>Welcome to Movie Hub</h2>
-        <p>Download and enjoy your favorite movies.</p>
+        <p>Discover current movies, free movies, and the latest releases here. Just use the tool to look for them<p> Free movies, lastest </p>
     </section>
 
-    <section class="categories">
+    <section id="categories" class="categories">
+        <h3>Browse by Categories</h3>
         <button onclick="showCategory('all')">All</button>
         <button onclick="showCategory('action')">Action</button>
         <button onclick="showCategory('adventure')">Adventure</button>
@@ -62,7 +67,7 @@
 
     <section class="movie-grid">
         <div class="movie-card" data-category="action">
-            <img src="movies/Gladiator II.jpg" alt="Action Movie">
+            <img src="movies/Gladiator II.jpg" alt="Gladiator II - Current Action Movie">
             <div class="content">
                 <h3>Gladiator II</h3>
                 <p>Gladiator II 2024.</p>
@@ -71,7 +76,7 @@
         </div>
         
         <div class="movie-card" data-category="action">
-            <img src="movies/Kraven The Hunter.jpg" alt="Action Movie">
+            <img src="movies/Kraven The Hunter.jpg" alt="Kraven The Hunter - Free Action Movie">
             <div class="content">
                 <h3>Kraven The Hunter</h3>
                 <p>Kraven The Hunter 2024.</p>
@@ -80,7 +85,7 @@
         </div>
 
         <div class="movie-card" data-category="adventure">
-            <img src="movies/Everyday.jpeg" alt="Adventure Movie">
+            <img src="movies/Everyday.jpeg" alt="Everyday - Latest Adventure Movie">
             <div class="content">
                 <h3>EVERYDAY</h3>
                 <p>Exciting adventure story.</p>
@@ -89,12 +94,13 @@
         </div>
         
         <div class="movie-card" data-category="comedy">
-            <img src="movies/bad Tiding.jpg" alt="Comedy Movie">
+            <img src="movies/bad Tiding.jpg" alt="Bad Tidings - Cheap Comedy Movie">
             <div class="content">
-                <h3 style="background-color: white;">Bad Tidings</h3>
+                <h3>Bad Tidings</h3>
                 <p>Bad Tidings. Comedy</p>
                 <a href="movies/BadTidings.MKV" download>Download</a>
-            </div>
+  
+ </div>
         </div>
     </section>
 
