@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Movie Hub - Download Your Favorite Movies</title>
     <link rel="stylesheet" type="text/css" href="styles.css">
-    
+
     <script>
         function toggleMenu() {
             const nav = document.querySelector('nav');
@@ -18,13 +18,9 @@
             });
         }
         function searchMovies() {
-            const searchTerm = document.getElementById('search-input').value.toLowerCase();
-            const allMovies = document.querySelectorAll('.movie-card');
-            allMovies.forEach(movie => {
-                const title = movie.querySelector('h3').textContent.toLowerCase();
-                const description = movie.querySelector('p').textContent.toLowerCase();
-                movie.style.display = title.includes(searchTerm) || description.includes(searchTerm) ? 'block' : 'none';
-            });
+            const searchTerm = document.getElementById('search-input').value;
+            const searchUrl = `https://waploaded.com/?s=${encodeURIComponent(searchTerm)}`;
+            window.location.href = searchUrl; // Redirect to Waploaded search
         }
     </script>
 </head>
